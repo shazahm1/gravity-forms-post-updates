@@ -256,20 +256,20 @@ class gform_update_post
         $dir = str_replace('\\' ,'/', $dir);
 
         // if file is in plugins folder
-        $wp_plugin_dir = str_replace('\\' ,'/', WP_PLUGIN_DIR); 
+        $wp_plugin_dir = str_replace('\\' ,'/', WP_PLUGIN_DIR);
         $dir = str_replace($wp_plugin_dir, plugins_url(), $dir, $count);
 
         if ( $count < 1 )
         {
 	        // if file is in wp-content folder
-	        $wp_content_dir = str_replace('\\' ,'/', WP_CONTENT_DIR); 
+	        $wp_content_dir = str_replace('\\' ,'/', WP_CONTENT_DIR);
 	        $dir = str_replace($wp_content_dir, content_url(), $dir, $count);
         }
 
         if ( $count < 1 )
         {
 	        // if file is in ??? folder
-	        $wp_dir = str_replace('\\' ,'/', ABSPATH); 
+	        $wp_dir = str_replace('\\' ,'/', ABSPATH);
 	        $dir = str_replace($wp_dir, site_url('/'), $dir);
         }
 
@@ -351,7 +351,7 @@ class gform_update_post
 	 * Check if a url variable has been submitted correctly, and then trigger.
 	 *
 	 * @author  ekaj
-	 * @return	void	
+	 * @return	void
 	 */
 	public static function process_request()
 	{
@@ -509,7 +509,7 @@ class gform_update_post
 	 * @author  ekaj
 	 * @since   1.2.6
 	 * @type	shortcode
-	 * @return	void	
+	 * @return	void
 	 */
 	public static function shortcode_edit_link( $atts )
 	{
@@ -528,7 +528,7 @@ class gform_update_post
 	 *
 	 * @author  ekaj
 	 * @type	shortcode
-	 * @return	void	
+	 * @return	void
 	 */
 	public static function shortcode( $atts )
 	{
@@ -702,9 +702,9 @@ class gform_update_post
 				$full_url  = wp_get_attachment_image_src($thumb_id, 'full', true);
 				$file      = $full_url[0];
 				$filename  = basename($file);
-	
+
 				$image = '<span style="display:inline-block; width:' . esc_attr($thumb_url[1]) . 'px; height:' . esc_attr($thumb_url[2]) . 'px; overflow:hidden;"><img src="' . esc_url($thumb_url[0]) . '" /></span>';
-	
+
 				ob_start();
 				?>
 				<div class="<?php echo esc_attr(self::PREFIX); ?>_upload_container">
@@ -1018,7 +1018,7 @@ class gform_update_post
 					$field['inputName'] = $field['postCustomFieldName'];
 
 					$value = $new_value;
-					add_filter( 'gform_field_value_' . $field['inputName'], function($value) use($value) { return $value; } );
+					add_filter( 'gform_field_value_' . $field['inputName'], function($v) use($value) { return $v; } );
 				}
 				break;
 
@@ -1116,7 +1116,7 @@ class gform_update_post
 	 *
 	 * Adds post id to cause post to be udpated instead of inserted.
 	 *
-	 * Adds the support for unique custom fields which clean up the database. This does force a new post_meta entry every save though. 
+	 * Adds the support for unique custom fields which clean up the database. This does force a new post_meta entry every save though.
 	 * This is forced because GF uses "add_post_meta" instead of "update_post_meta".
 	 *
 	 * @author  p51labs
