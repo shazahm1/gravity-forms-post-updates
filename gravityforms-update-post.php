@@ -1197,7 +1197,7 @@ class gform_update_post
 	 * Check permissions for current user that they are allowed to edit the post/page.
 	 *
 	 * @author  ekaj
-	 * @return	void
+	 * @return	bool
 	 */
 	public static function current_user_can( $post_id=false )
 	{
